@@ -14,6 +14,9 @@ namespace R5T.D0001.Default
             return constantValueUtcNowProvider;
         }
 
+        /// <summary>
+        /// Uses the <see cref="ConstructorValueUtcNowProvider.NewFromUtcNow(DateTime)"/> as the default.
+        /// </summary>
         public static ConstructorValueUtcNowProvider New(DateTime utcNow)
         {
             var constantValueUtcNowProvider = ConstructorValueUtcNowProvider.NewFromUtcNow(utcNow);
