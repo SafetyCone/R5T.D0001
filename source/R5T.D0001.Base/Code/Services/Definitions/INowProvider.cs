@@ -6,6 +6,7 @@ namespace R5T.D0001
 {
     public interface INowProvider
     {
-        Task<DateTime> GetNow();
+        DateTime GetNow();
+        Task<DateTime> GetNowAsync();
     }
 }
