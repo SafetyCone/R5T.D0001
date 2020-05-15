@@ -13,8 +13,7 @@ namespace R5T.D0001.Default
         {
             var utcNow = DateTime.UtcNow;
 
-            var output = Task.FromResult(utcNow);
-            return output;
+            return Task.FromResult(utcNow);
         }
     }
 }
