@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace R5T.D0001
 {
-    public interface INowProvider
+    public interface IUtcNowProvider
     {
-        Task<DateTime> GetNowAsync();
+        Task<DateTime> GetUtcNowAsync();
     }
 }

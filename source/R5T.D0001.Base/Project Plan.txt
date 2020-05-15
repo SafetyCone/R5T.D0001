@@ -1,1 +1,1 @@
-﻿R5T.D0001.Base - A base definitions library for the INowProvider service.
+﻿R5T.D0001.Base - A base definitions library for the IUtcNowProvider service.
