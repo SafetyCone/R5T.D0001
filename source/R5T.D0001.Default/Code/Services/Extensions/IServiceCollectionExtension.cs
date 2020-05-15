@@ -22,8 +22,8 @@ namespace R5T.D0001.Default
         /// <summary>
         /// Adds the <see cref="UtcNowProvider"/> implementation of <see cref="IUtcNowProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddDefaultUtcNowProvider<TNowProvider>(this IServiceCollection services)
-            where TNowProvider: IUtcNowProvider
+        public static IServiceCollection AddDefaultUtcNowProvider<TUtcNowProvider>(this IServiceCollection services)
+            where TUtcNowProvider: IUtcNowProvider
         {
             services.AddDefaultUtcNowProvider();
 
@@ -35,7 +35,7 @@ namespace R5T.D0001.Default
         /// </summary>
         public static ServiceAction<IUtcNowProvider> AddDefaultUtcNowProviderAction(this IServiceCollection services)
         {
-            var serviceAction = ServiceAction.New<IUtcNowProvider>(() => services.AddDefaultUtcNowProvider());
+            var serviceAction = ServiceAction<IUtcNowProvider>.New(() => services.AddDefaultUtcNowProvider());
             return serviceAction;
         }
     }
