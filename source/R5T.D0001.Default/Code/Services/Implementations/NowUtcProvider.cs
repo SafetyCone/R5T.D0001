@@ -7,13 +7,13 @@ namespace R5T.D0001.Default
     /// <summary>
     /// Returns the <see cref="DateTime.UtcNow"/> value.
     /// </summary>
-    public class UtcNowProvider : IUtcNowProvider
+    public class NowUtcProvider : INowUtcProvider
     {
-        public Task<DateTime> GetUtcNowAsync()
+        public Task<DateTime> GetNowUtcAsync()
         {
-            var utcNow = DateTime.UtcNow;
+            var nowUtc = DateTime.UtcNow;
 
-            return Task.FromResult(utcNow);
+            return Task.FromResult(nowUtc);
         }
     }
 }

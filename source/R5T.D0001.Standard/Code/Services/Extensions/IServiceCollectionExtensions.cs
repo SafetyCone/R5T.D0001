@@ -12,32 +12,32 @@ namespace R5T.D0001.Standard
     public static class IServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="IUtcNowProvider"/> service.
+        /// Adds the <see cref="INowUtcProvider"/> service.
         /// </summary>
-        public static IServiceCollection AddUtcNowProvider(this IServiceCollection services)
+        public static IServiceCollection AddNowUtcProvider(this IServiceCollection services)
         {
-            services.AddDefaultUtcNowProvider();
+            services.AddDefaultNowUtcProvider();
 
             return services;
         }
 
         /// <summary>
-        /// Adds the <see cref="IUtcNowProvider"/> service.
+        /// Adds the <see cref="INowUtcProvider"/> service.
         /// </summary>
-        public static IServiceCollection AddUtcNowProvider<TUtcNowProvider>(this IServiceCollection services)
-            where TUtcNowProvider: IUtcNowProvider
+        public static IServiceCollection AddNowUtcProvider<TUtcNowProvider>(this IServiceCollection services)
+            where TUtcNowProvider: INowUtcProvider
         {
-            services.AddUtcNowProvider();
+            services.AddNowUtcProvider();
 
             return services;
         }
 
         /// <summary>
-        /// Adds the <see cref="IUtcNowProvider"/> service.
+        /// Adds the <see cref="INowUtcProvider"/> service.
         /// </summary>
-        public static ServiceAction<IUtcNowProvider> AddUtcNowProviderAction(this IServiceCollection services)
+        public static ServiceAction<INowUtcProvider> AddNowUtcProviderAction(this IServiceCollection services)
         {
-            var serviceAction = ServiceAction<IUtcNowProvider>.New(() => services.AddUtcNowProvider());
+            var serviceAction = ServiceAction<INowUtcProvider>.New(() => services.AddNowUtcProvider());
             return serviceAction;
         }
     }
