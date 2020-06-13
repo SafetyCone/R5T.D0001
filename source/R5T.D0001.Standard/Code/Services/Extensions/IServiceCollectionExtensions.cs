@@ -35,7 +35,7 @@ namespace R5T.D0001.Standard
         /// <summary>
         /// Adds the <see cref="INowUtcProvider"/> service.
         /// </summary>
-        public static ServiceAction<INowUtcProvider> AddNowUtcProviderAction(this IServiceCollection services)
+        public static IServiceAction<INowUtcProvider> AddNowUtcProviderAction(this IServiceCollection services)
         {
             var serviceAction = ServiceAction<INowUtcProvider>.New(() => services.AddNowUtcProvider());
             return serviceAction;
