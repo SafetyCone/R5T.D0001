@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Dacia;
 
-using R5T.D0001.Default;
+using DefaultIServiceCollectionExtensions = R5T.D0001.Default.IServiceCollectionExtension;
 
 
 namespace R5T.D0001.Standard
@@ -16,18 +16,9 @@ namespace R5T.D0001.Standard
         /// </summary>
         public static IServiceCollection AddNowUtcProvider(this IServiceCollection services)
         {
-            services.AddDefaultNowUtcProvider();
+            var nowUtcProviderAction = services.AddNowUtcProviderAction();
 
-            return services;
-        }
-
-        /// <summary>
-        /// Adds the <see cref="INowUtcProvider"/> service.
-        /// </summary>
-        public static IServiceCollection AddNowUtcProvider<TUtcNowProvider>(this IServiceCollection services)
-            where TUtcNowProvider: INowUtcProvider
-        {
-            services.AddNowUtcProvider();
+            services.Run(nowUtcProviderAction);
 
             return services;
         }
@@ -37,7 +28,7 @@ namespace R5T.D0001.Standard
         /// </summary>
         public static IServiceAction<INowUtcProvider> AddNowUtcProviderAction(this IServiceCollection services)
         {
-            var serviceAction = ServiceAction<INowUtcProvider>.New(() => services.AddNowUtcProvider());
+            var serviceAction = DefaultIServiceCollectionExtensions.AddNowUtcProviderAction(services);
             return serviceAction;
         }
     }

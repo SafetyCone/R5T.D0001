@@ -12,7 +12,7 @@ namespace R5T.D0001.Default
         /// <summary>
         /// Adds the <see cref="NowUtcProvider"/> implementation of <see cref="INowUtcProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddDefaultNowUtcProvider(this IServiceCollection services)
+        public static IServiceCollection AddNowUtcProvider(this IServiceCollection services)
         {
             services.AddSingleton<INowUtcProvider, NowUtcProvider>();
 
@@ -22,20 +22,9 @@ namespace R5T.D0001.Default
         /// <summary>
         /// Adds the <see cref="NowUtcProvider"/> implementation of <see cref="INowUtcProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddDefaultNowUtcProvider<TNowUtcProvider>(this IServiceCollection services)
-            where TNowUtcProvider: INowUtcProvider
+        public static ServiceAction<INowUtcProvider> AddNowUtcProviderAction(this IServiceCollection services)
         {
-            services.AddDefaultNowUtcProvider();
-
-            return services;
-        }
-
-        /// <summary>
-        /// Adds the <see cref="NowUtcProvider"/> implementation of <see cref="INowUtcProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
-        /// </summary>
-        public static ServiceAction<INowUtcProvider> AddDefaultNowUtcProviderAction(this IServiceCollection services)
-        {
-            var serviceAction = ServiceAction<INowUtcProvider>.New(() => services.AddDefaultNowUtcProvider());
+            var serviceAction = ServiceAction<INowUtcProvider>.New(() => services.AddNowUtcProvider());
             return serviceAction;
         }
     }
