@@ -8,7 +8,7 @@ namespace R5T.D0001
     {
         public static async Task<DateTime> GetNowAsync(INowUtcProvider nowUtcProvider)
         {
-            var utcNow = await nowUtcProvider.GetNowUtcAsync();
+            var utcNow = await nowUtcProvider.GetNowUtc();
 
             var now = utcNow.ToLocalTime();
             return now;

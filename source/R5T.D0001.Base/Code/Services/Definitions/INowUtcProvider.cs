@@ -6,6 +6,6 @@ namespace R5T.D0001
 {
     public interface INowUtcProvider
     {
-        Task<DateTime> GetNowUtcAsync();
+        Task<DateTime> GetNowUtc();
     }
 }
