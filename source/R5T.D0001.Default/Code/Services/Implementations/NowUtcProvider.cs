@@ -9,7 +9,7 @@ namespace R5T.D0001.Default
     /// </summary>
     public class NowUtcProvider : INowUtcProvider
     {
-        public Task<DateTime> GetNowUtcAsync()
+        public Task<DateTime> GetNowUtc()
         {
             var nowUtc = DateTime.UtcNow;
 

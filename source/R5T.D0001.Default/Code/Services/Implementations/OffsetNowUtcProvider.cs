@@ -47,7 +47,7 @@ namespace R5T.D0001.Default
             this.Offset = offset;
         }
 
-        public Task<DateTime> GetNowUtcAsync()
+        public Task<DateTime> GetNowUtc()
         {
             var nowUtc = DateTime.UtcNow;
 

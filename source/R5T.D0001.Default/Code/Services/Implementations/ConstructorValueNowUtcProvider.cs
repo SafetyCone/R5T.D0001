@@ -50,7 +50,7 @@ namespace R5T.D0001.Default
             this.NowUtc = nowUtc;
         }
 
-        public Task<DateTime> GetNowUtcAsync()
+        public Task<DateTime> GetNowUtc()
         {
             return Task.FromResult(this.NowUtc);
         }

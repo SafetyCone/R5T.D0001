@@ -12,7 +12,7 @@ namespace R5T.D0001.Default
         public static DateTime NowUtc { get; set; }
 
 
-        public Task<DateTime> GetNowUtcAsync()
+        public Task<DateTime> GetNowUtc()
         {
             return Task.FromResult(StaticValueNowUtcProvider.NowUtc);
         }
