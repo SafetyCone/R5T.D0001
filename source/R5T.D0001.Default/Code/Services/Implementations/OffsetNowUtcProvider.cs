@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
+
+using R5T.T0064;
 
 
 namespace R5T.D0001.Default
 {
-    public class OffsetNowUtcProvider : INowUtcProvider
+    [ServiceImplementationMarker]
+    public class OffsetNowUtcProvider : INowUtcProvider, IServiceImplementation
     {
         #region Static
 
@@ -42,7 +45,8 @@ namespace R5T.D0001.Default
         private TimeSpan Offset { get; }
 
 
-        public OffsetNowUtcProvider(TimeSpan offset)
+        public OffsetNowUtcProvider(
+            [NotServiceComponent] TimeSpan offset)
         {
             this.Offset = offset;
         }

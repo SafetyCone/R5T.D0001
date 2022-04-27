@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
+
+using R5T.T0064;
 
 
 namespace R5T.D0001.Default
 {
-    public class ConstructorValueNowUtcProvider : INowUtcProvider
+    [ServiceImplementationMarker]
+    public class ConstructorValueNowUtcProvider : INowUtcProvider, IServiceImplementation
     {
         #region Static
 
@@ -45,7 +48,8 @@ namespace R5T.D0001.Default
         private DateTime NowUtc { get; }
 
 
-        public ConstructorValueNowUtcProvider(DateTime nowUtc)
+        public ConstructorValueNowUtcProvider(
+            [NotServiceComponent] DateTime nowUtc)
         {
             this.NowUtc = nowUtc;
         }

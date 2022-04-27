@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;using R5T.T0064;
 
 
 namespace R5T.D0001.Default
-{
-    public class StaticValueNowUtcProvider : INowUtcProvider
+{[ServiceImplementationMarker]
+    public class StaticValueNowUtcProvider : INowUtcProvider,IServiceImplementation
     {
         /// <summary>
         /// Note: not thread-safe.
